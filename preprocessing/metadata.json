@@ -1,0 +1,13 @@
+{
+    "lookback": 30,
+    "n_samples": 3650,
+    "target_col": "Daily minimum temperatures",
+    "date_col": "Date",
+    "train_size": 2525,
+    "val_size": 547,
+    "test_size": 548,
+    "min_temp": 0.0,
+    "max_temp": 26.3,
+    "mean_temp": 11.177753424657535,
+    "std_temp": 4.071836899397183
+}
