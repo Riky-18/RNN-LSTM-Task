@@ -19,8 +19,8 @@ The table below reports the values saved in [`preprocessing/results.json`](prepr
 | Model | MAE (°C) | RMSE (°C) | R² | MAPE |
 | --- | ---: | ---: | ---: | ---: |
 | Persistence baseline | 2.04 | 2.57 | 0.565 | 22.35% |
-| Vanilla RNN | 1.74 | 2.24 | 0.671 | 19.21% |
-| LSTM | 1.75 | 2.24 | 0.669 | 19.65% |
+| Vanilla RNN | 1.73 | 2.22 | 0.676 | 19.48% |
+| LSTM | 1.74 | 2.24 | 0.669 | 19.61% |
 
 ## Project contents
 

@@ -1,13 +1,31 @@
 {
     "lookback": 30,
-    "n_samples": 3650,
-    "target_col": "Daily minimum temperatures",
-    "date_col": "Date",
-    "train_size": 2525,
-    "val_size": 547,
-    "test_size": 548,
-    "min_temp": 0.0,
-    "max_temp": 26.3,
-    "mean_temp": 11.177753424657535,
-    "std_temp": 4.071836899397183
+    "best_model": "Vanilla RNN",
+    "metrics": {
+        "MAE": {
+            "Baseline (Persistence)": 2.0364963503649633,
+            "Vanilla RNN": 1.7294338311592157,
+            "Stacked LSTM": 1.7444252485776468
+        },
+        "MSE": {
+            "Baseline (Persistence)": 6.6163138686131395,
+            "Vanilla RNN": 4.931735233208883,
+            "Stacked LSTM": 5.034572148542508
+        },
+        "RMSE": {
+            "Baseline (Persistence)": 2.572219638486018,
+            "Vanilla RNN": 2.220751051605939,
+            "Stacked LSTM": 2.243785227810921
+        },
+        "R2": {
+            "Baseline (Persistence)": 0.5646729817472023,
+            "Vanilla RNN": 0.6755115255233335,
+            "Stacked LSTM": 0.6687452673609338
+        },
+        "MAPE": {
+            "Baseline (Persistence)": 22.3515882544546,
+            "Vanilla RNN": 19.481825861872537,
+            "Stacked LSTM": 19.60671569799489
+        }
+    }
 }

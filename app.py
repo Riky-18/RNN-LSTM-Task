@@ -8,7 +8,6 @@ import joblib
 # Set Page Config
 st.set_page_config(
     page_title="RNN & LSTM Daily Temperature Forecasting",
-    page_icon="🌡️",
     layout="wide"
 )
 
@@ -59,7 +58,7 @@ def load_dataset():
     return None, None, None
 
 def main():
-    st.title("🌡️ RNN & LSTM Daily Minimum Temperature Forecasting")
+    st.title("RNN & LSTM Daily Minimum Temperature Forecasting")
     st.markdown("""
     An end-to-end Deep Learning application using **Vanilla Recurrent Neural Networks (RNN)** 
     and **Long Short-Term Memory (LSTM)** architectures to forecast daily minimum temperatures 
@@ -74,19 +73,18 @@ def main():
         return
 
     # Sidebar Navigation
-    st.sidebar.image("https://img.icons8.com/color/96/000000/thermometer.png", width=80)
     st.sidebar.title("Navigation")
     page = st.sidebar.radio("Go to Section:", [
-        "📊 Overview & Dataset",
-        "🧠 Model Performance",
-        "🔮 Interactive Forecasting",
-        "📈 Error & Residual Analysis"
+        "Overview & Dataset",
+        "Model Performance",
+        "Interactive Forecasting",
+        "Error & Residual Analysis"
     ])
     
     lookback = metadata.get("lookback", 30)
     
-    if page == "📊 Overview & Dataset":
-        st.header("📊 Dataset & Problem Overview")
+    if page == "Overview & Dataset":
+        st.header("Dataset & Problem Overview")
         
         col1, col2, col3, col4 = st.columns(4)
         col1.metric("Total Records", f"{len(df):,}")
@@ -108,8 +106,8 @@ def main():
         - **Objective**: Predict temperature at day $t$ given values from $t-30$ to $t-1$.
         """)
 
-    elif page == "🧠 Model Performance":
-        st.header("🧠 Model Architectures & Benchmark Performance")
+    elif page == "Model Performance":
+        st.header("Model Architectures & Benchmark Performance")
         
         if results:
             st.subheader("Model Comparison Metrics (Evaluated on Untouched Test Set)")
@@ -124,7 +122,7 @@ def main():
                                    .highlight_max(axis=0, color='lightgreen', subset=['R2']),
                         use_container_width=True)
             
-            st.success(f"🏆 Best Performing Model: **{results.get('Best_Model', 'LSTM')}**")
+            st.success(f"Best Performing Model: **{results.get('Best_Model', 'LSTM')}**")
             
             st.subheader("Training vs Validation Loss Curves")
             c1, c2 = st.columns(2)
@@ -143,8 +141,8 @@ def main():
         else:
             st.info("Train models first to view performance curves!")
 
-    elif page == "🔮 Interactive Forecasting":
-        st.header("🔮 Interactive Temperature Prediction")
+    elif page == "Interactive Forecasting":
+        st.header("Interactive Temperature Prediction")
         
         selected_model_name = st.selectbox("Select Trained Model for Inference:", list(models.keys()))
         model = models.get(selected_model_name)
@@ -190,7 +188,7 @@ def main():
 
         forecast_horizon = st.slider("Select Forecast Horizon (Days ahead):", 1, 7, 1)
         
-        if st.button("🚀 Forecast Temperature", type="primary"):
+        if st.button("Forecast Temperature", type="primary"):
             curr_sequence = scaler.transform(input_temps).copy()
             preds_scaled = []
             
@@ -214,8 +212,8 @@ def main():
             chart_df = pd.DataFrame({"Temperature (°C)": combined_vals}, index=idx_labels)
             st.line_chart(chart_df)
 
-    elif page == "📈 Error & Residual Analysis":
-        st.header("📈 Residual & Error Diagnostics")
+    elif page == "Error & Residual Analysis":
+        st.header("Residual & Error Diagnostics")
         st.markdown("""
         Detailed residual inspection on the test dataset to verify forecast bias and error distributions.
         """)
